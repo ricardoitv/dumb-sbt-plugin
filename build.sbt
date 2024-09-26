@@ -10,6 +10,7 @@ lazy val root = (project in file("."))
         case "2.12" => "1.2.8" // set minimum sbt version
       }
     }
+    ,libraryDependencies += "org.reflections" % "reflections" % "0.10.2"
   )
 
 val artifactory = "https://itvrepos.jfrog.io/itvrepos/oasvc-ivy"

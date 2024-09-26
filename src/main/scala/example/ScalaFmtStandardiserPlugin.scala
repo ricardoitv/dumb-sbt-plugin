@@ -1,10 +1,13 @@
 package example
 
+import org.reflections.Reflections
+import org.reflections.scanners.ResourcesScanner
 import sbt.{Def, *}
 import sbt.Keys.*
 
 import java.nio.charset.Charset
 import java.nio.file.{Files, Paths, StandardOpenOption}
+import scala.io.BufferedSource
 
 object ScalaFmtStandardiserPlugin extends AutoPlugin {
   // this enables the plugin automatically so we don't need to use `.enablePlugins(ScalaFmtStandardiserPlugin)` on the project
@@ -51,6 +54,7 @@ object ScalaFmtStandardiserPlugin extends AutoPlugin {
                      |}
                      |project.excludePaths = ["glob:**/Dependency.scala", "glob:**.sbt", "glob:**/project/Plugin.scala"]
                      |""".stripMargin
+
     val scalafmtFile = Paths.get("./.scalafmt.conf")
     Files.deleteIfExists(scalafmtFile)
     Files.write(
