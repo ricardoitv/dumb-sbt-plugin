@@ -12,7 +12,7 @@ lazy val root = (project in file("."))
     }
   )
 
-val artifactory = "https://itvrepos.jfrog.io/itvrepos/user-libs"
+val artifactory = "https://itvrepos.jfrog.io/itvrepos/oasvc-ivy"
 ThisBuild / publishTo := {
   if (isSnapshot.value)
     Some("Artifactory Realm" at artifactory)
