@@ -13,7 +13,7 @@ object ScalaFmtStandardiserPlugin extends AutoPlugin {
   private val commandAliases: Seq[Def.Setting[State => State]] =
     addCommandAlias(
       "commitCheck",
-      """clean; eval scala.util.Properties.setProp("CI", ""); project service; compile; dependencyUpdates; scalafmtAll; test; IntegrationTest/test"""
+      """clean; compile; dependencyUpdates; scalafmtAll; ciTestAll"""
     ) ++ addCommandAlias(
       "cc",
       "commitCheck"
