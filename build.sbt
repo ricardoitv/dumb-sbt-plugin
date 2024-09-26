@@ -12,3 +12,11 @@ lazy val root = (project in file("."))
       }
     }
   )
+
+val artifactory = "https://itvrepos.jfrog.io/itvrepos/user-libs"
+ThisBuild / publishTo := {
+  if (isSnapshot.value)
+    Some("Artifactory Realm" at artifactory)
+  else
+    Some("Artifactory Realm" at artifactory + ";build.timestamp=" + new java.util.Date().getTime)
+}
