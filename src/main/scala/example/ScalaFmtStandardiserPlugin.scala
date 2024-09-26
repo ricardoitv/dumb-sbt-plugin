@@ -1,13 +1,10 @@
 package example
 
-import org.reflections.Reflections
-import org.reflections.scanners.ResourcesScanner
-import sbt.{Def, *}
 import sbt.Keys.*
+import sbt.{Def, *}
 
 import java.nio.charset.Charset
 import java.nio.file.{Files, Paths, StandardOpenOption}
-import scala.io.BufferedSource
 
 object ScalaFmtStandardiserPlugin extends AutoPlugin {
   // this enables the plugin automatically so we don't need to use `.enablePlugins(ScalaFmtStandardiserPlugin)` on the project
