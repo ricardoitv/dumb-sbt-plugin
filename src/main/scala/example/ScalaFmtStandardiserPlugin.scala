@@ -38,6 +38,7 @@ object ScalaFmtStandardiserPlugin extends AutoPlugin {
                      |preset=default
                      |align.preset=most
                      |assumeStandardLibraryStripMargin = false
+                     |rewrite.scala3.removeEndMarkerMaxLines = 1
                      |align.stripMargin = true
                      |align.openParenDefnSite=false
                      |continuationIndent.defnSite=2
@@ -48,6 +49,7 @@ object ScalaFmtStandardiserPlugin extends AutoPlugin {
                      |  "→": "->"
                      |  "←": "<-"
                      |}
+                     |project.excludePaths = ["glob:**/Dependency.scala", "glob:**.sbt", "glob:**/project/Plugin.scala"]
                      |""".stripMargin
     val scalafmtFile = Paths.get("./.scalafmt.conf")
     Files.deleteIfExists(scalafmtFile)
