@@ -1,4 +1,3 @@
-ThisBuild / version := "0.1.0-SNAPSHOT"
 ThisBuild / organization := "com.example"
 ThisBuild / homepage := Some(url("https://github.com/sbt/sbt-hello"))
 
