@@ -19,3 +19,13 @@ ThisBuild / publishTo := {
   else
     Some("Artifactory Realm" at artifactory + ";build.timestamp=" + new java.util.Date().getTime)
 }
+
+lazy val artifactoryCredentials = {
+  val maybeCredentials = for {
+    host <- sys.env.get("ARTIFACTORY_HOST")
+    user <- sys.env.get("ARTIFACTORY_USER")
+    pass <- sys.env.get("ARTIFACTORY_PASSWORD")
+  } yield Credentials("Artifactory Realm", host, user, pass)
+  maybeCredentials.getOrElse(Credentials(Path.userHome / ".ivy2" / ".credentials"))
+}
+ThisBuild / credentials += artifactoryCredentials
